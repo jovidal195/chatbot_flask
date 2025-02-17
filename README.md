@@ -9,7 +9,7 @@ this is a small flask projet to allow a backend access point with route to LLMs 
 Clone the repo
 
 ```bash
-  git clone https://github.com/jovidal195/chatbot_flask.git
+  git clone https://github.com/jovidal195/chatbot_flask_endpoint.git
 ```
 Create a venv (suggested) then install requirements
 ```bash
