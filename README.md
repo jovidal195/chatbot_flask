@@ -6,10 +6,10 @@ this is a small flask projet to allow a backend access point with route to LLMs 
 
 ## Installation
 
-Clone the https://github.com/jovidal195/chatbot_flask.git
+Clone the repo
 
 ```bash
-  git clone repo
+  git clone https://github.com/jovidal195/chatbot_flask.git
 ```
 Create a venv (suggested) then install requirements
 ```bash
@@ -23,7 +23,8 @@ run the program
 ## Developer
 <details> 
   <summary>Wanna support me? </summary>
-   Here come the e-begging ಥ_ಥ
+   Here come the e-begging ಥ_ಥ 
+   
    [![ko-fi](https://www.ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/jello195)
 </details>
 
