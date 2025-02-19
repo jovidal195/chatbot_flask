@@ -9,6 +9,7 @@ import tempfile
 import base64
 from gtts import gTTS
 import os
+import re
 
 app = Flask(__name__)
 CORS(app, resources={r"/*": {"origins": "*"}})
@@ -70,8 +71,19 @@ def generate_text():
             temp_audio_path = temp_audio.name
             temp_audio.close()  # Fermer le fichier pour permettre à gTTS de l'utiliser
             
-            tts = gTTS(text=answer, lang='fr-ca')
+            tts = gTTS(text=re.sub(r'<.*?>', '', answer), lang='fr-ca')
             tts.save(temp_audio_path)
+            
+            # Charger et modifier la vitesse avec pydub
+            audio = AudioSegment.from_file(temp_audio_path)
+            
+            #ajuste la vitesse de lecture
+            playback_speed = 1.2  # Ajustez ici (1.0 = normal, 1.5 = 50% plus rapide)
+            audio = audio.speedup(playback_speed=playback_speed)
+
+            # Sauvegarde du fichier modifié
+            temp_audio_path = temp_audio_path.replace(".mp3", "_mod.mp3")
+            audio.export(temp_audio_path, format="mp3")
             
             # Encodage en base64
             with open(temp_audio_path, "rb") as audio:
